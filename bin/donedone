@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+  , donedone = require('../lib/donedone-api.js')
+  , fs = require('fs')
+  , chalk = require('chalk')
+  , rd = chalk.red
+  , yw = chalk.yellow
+  , gn = chalk.green
+  , gy = chalk.gray;
+
+var defaults = {
+  title: 'Release Build for ' + new Date().toDateString(),
+  description: 'No description',
+  emailBody: 'Dear [First Name] [Last Name],\n\n' +
+    'There is a new release build for Test project.\n\n' +
+    'Go here to view the issues in this release build: [Link to Issues For Retest]'
+};
+
+// Read the .donedonerc file
+var readDonedonerc = function() {
+  if(fs.existsSync('.donedonerc')) {
+    try {
+      var donedonerc = JSON.parse(fs.readFileSync('.donedonerc', {encoding: 'utf8'}));
+      Object.keys(donedonerc).forEach(function(key) {
+        if(!program.hasOwnProperty(key) || program[key] === defaults[key]) {
+          program[key] = donedonerc[key];
+        }
+      });
+    } catch(err) {
+      console.log(rd('.donedonerc file could not be parsed!'));
+      console.log(rd(err.message));
+    }
+  }
+};
+
+program.version('1.0.0')
+  .usage('<action> [options]')
+  .option('-s, --subdomain [string]', 'The DoneDone subdomain')
+  .option('-u, --username [string]', 'The DoneDone username')
+  .option('-p, --password [string]', 'The DoneDone password or API key')
+  .option('-t, --title [string]', 'Title for the release build', defaults.title)
+  .option('-d, --description [string]', 'Description for the release build', defaults.description)
+  .option('-e, --emailBody [string]', 'Body of the email to send for the release build', defaults.emailBody);
+
+program.command('release-build <projectId>')
+  .description('Create a full release build')
+  .action(function(projectId) {
+    readDonedonerc();
+
+    donedone.createFullReleaseBuild(program.subdomain, program.username, program.password, projectId, program.title, program.description, program.emailBody, function(err, data) {
+      if(err) {
+        console.log(rd('Error creating release build: ') + gy(err));
+      }
+      else {
+        console.log(gn('Successfully created release build!'));
+      }
+    });
+  });
+
+program.parse(process.argv);
