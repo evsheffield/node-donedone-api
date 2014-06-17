@@ -32,5 +32,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.2"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "async": "~0.9.0",
+    "lodash": "~2.4.1"
+  }
 }
