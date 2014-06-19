@@ -2,6 +2,9 @@
 
 > A wrapper for [DoneDone](http://www.getdonedone.com/) API 2.0
 
+This module is a work-in-progress. Currently only a small subset of the API functions
+are availble. You can view the full documentation for the DoneDone API [here](http://www.getdonedone.com/api/).
+
 ## Installation
 `npm install donedone-api`
 
@@ -44,7 +47,7 @@ You can create a JSON file named `.donedonerc` in the directory that you're runn
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+- v0.1.0 Initial release, add functions for companies & people and release builds. CLI available for "full" release builds.
 
 ## License
 Copyright (c) 2014 Evan Sheffield  
