@@ -47,6 +47,7 @@ You can create a JSON file named `.donedonerc` in the directory that you're runn
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+- v0.1.1 Fix hardcoded user id that messed up release builds
 - v0.1.0 Initial release, add functions for companies & people and release builds. CLI available for "full" release builds.
 
 ## License
