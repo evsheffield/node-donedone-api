@@ -1,20 +1,44 @@
 # donedone-api
 
-A wrapper for DoneDone API 2.0
+> A wrapper for [DoneDone](http://www.getdonedone.com/) API 2.0
 
-## Getting Started
-Install the module with: `npm install donedone-api`
+## Installation
+`npm install donedone-api`
 
+## Usage
 ```javascript
 var donedone_api = require('donedone-api');
-donedone_api.awesome(); // "awesome"
+var allCompanies = donedone_api.getAllCompanies(...);
 ```
 
 ## Documentation
-_(Coming soon)_
+Please refer to the `docs` folder for detailed API documentation.
 
-## Examples
-_(Coming soon)_
+## CLI
+A set of command-line tools is also available by running:
+
+`donedone`
+
+To get the list of commands available, use `donedone --help`.
+
+Every command has three required options:
+
+```
+-s, --subdomain [string]    The DoneDone subdomain
+-u, --username  [string]    The DoneDone username
+-p, --password  [string]    The DoneDone password or API key
+```
+
+You may be thinking, "Gosh, I really wish I didn't have to enter all of those every time." Well you're in luck!
+You can create a JSON file named `.donedonerc` in the directory that you're running `donedone`.
+
+```
+{
+  "subdomain": "mycompany",
+  "username": "myusername",
+  "password": "*****"
+}
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

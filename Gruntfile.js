@@ -35,12 +35,24 @@ module.exports = function(grunt) {
         tasks: ['jshint:test', 'nodeunit']
       },
     },
+    dox: {
+      all: {
+        options: {
+          lang: 'js',
+          outputAs: 'md'
+        },
+        files: [
+          {expand: true, cwd: 'lib', src: '*', dest: 'docs/', ext: '.md'}
+        ]
+      }
+    }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-dox');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit']);
