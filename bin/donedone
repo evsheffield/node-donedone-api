@@ -34,7 +34,7 @@ var readDonedonerc = function() {
   }
 };
 
-program.version('1.0.0')
+program.version(require('../package.json').version)
   .usage('<action> [options]')
   .option('-s, --subdomain [string]', 'The DoneDone subdomain')
   .option('-u, --username [string]', 'The DoneDone username')
