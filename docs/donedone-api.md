@@ -4,6 +4,8 @@
   - [exports.getPerson()](#exportsgetpersonsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getProject()](#exportsgetprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getPeopleInProject()](#exportsgetpeopleinprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
+  - [exports.getIssue()](#exportsgetissuesubdomainstringusernamestringpasswordorapitokenstringprojectidintissueidintcallbackfunction)
+  - [exports.getIssuesWaitingOnYou()](#exportsgetissueswaitingonyousubdomainstringusernamestringpasswordorapitokenstringcallbackfunction)
   - [exports.getReleaseBuildsForProject()](#exportsgetreleasebuildsforprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getReleaseBuildInfo()](#exportsgetreleasebuildinfosubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.createReleaseBuildForProject()](#exportscreatereleasebuildforprojectsubdomainstringusernamestringpasswordorapitokenstringidintordernumbersstringtitlestringdescriptionstringemailbodystringuseridstoccstringcallbackfunction)
@@ -44,6 +46,14 @@
   <p>Get the list of all people with access to the project.</p>
   <p>The authenticated user must be an administrator or
   owner of the account.</p>
+
+## exports.getIssue(subdomain:string, username:string, passwordOrAPIToken:string, projectId:int, issueId:int, callback:Function)
+
+  <p>Get details on a given issue. Query by product and issue id.</p>
+
+## exports.getIssuesWaitingOnYou(subdomain:string, username:string, passwordOrAPIToken:string, callback:Function)
+
+  <p>Get a list of all the issues currently waiting on you</p>
 
 ## exports.getReleaseBuildsForProject(subdomain:string, username:string, passwordOrAPIToken:string, id:int, callback:Function)
 
