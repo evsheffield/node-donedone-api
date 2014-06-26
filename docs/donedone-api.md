@@ -2,6 +2,7 @@
   - [exports.getAllCompanies()](#exportsgetallcompaniessubdomainstringusernamestringpasswordorapitokenstringcallbackfunction)
   - [exports.getCompanyDetails()](#exportsgetcompanydetailssubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getPerson()](#exportsgetpersonsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
+  - [exports.getProject()](#exportsgetprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getPeopleInProject()](#exportsgetpeopleinprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getReleaseBuildsForProject()](#exportsgetreleasebuildsforprojectsubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
   - [exports.getReleaseBuildInfo()](#exportsgetreleasebuildinfosubdomainstringusernamestringpasswordorapitokenstringidintcallbackfunction)
@@ -32,6 +33,12 @@
   <p>The authenticated user must be an administrator or
   owner of the account.</p>
 
+## exports.getProject(subdomain:string, username:string, passwordOrAPIToken:string, id:int, callback:Function)
+
+  <p>Get information about a project.</p>
+  <p>The authenticated user must be an administrator or
+  owner of the account.</p>
+
 ## exports.getPeopleInProject(subdomain:string, username:string, passwordOrAPIToken:string, id:int, callback:Function)
 
   <p>Get the list of all people with access to the project.</p>
@@ -55,3 +62,8 @@
 
   <p>Create a release build for the specified project which encompasses <em>all</em> issues
   marked as <code>Ready for next release</code>. An email will be sent to all users in the project.</p>
+  <p>The email body has limited templating capabilities. Put any of the following in the email
+  body and it will be replaced with its corresponding value.</p>
+  <ul>
+  <li>{{Project Name}} =&gt; The name of the project</li>
+  </ul>

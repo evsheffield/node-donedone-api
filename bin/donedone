@@ -13,7 +13,7 @@ var defaults = {
   title: 'Release Build for ' + new Date().toDateString(),
   description: 'No description',
   emailBody: 'Dear [First Name] [Last Name],\n\n' +
-    'There is a new release build for Test project.\n\n' +
+    'There is a new release build for {{Project Name}}.\n\n' +
     'Go here to view the issues in this release build: [Link to Issues For Retest]'
 };
 
