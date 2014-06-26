@@ -18,7 +18,11 @@ var allCompanies = donedone_api.getAllCompanies(...);
 Please refer to the `docs` folder for detailed API documentation.
 
 ## CLI
-A set of command-line tools is also available by running:
+First, make sure to install this module globally.
+
+`npm install donedone-api -g`
+
+A set of command-line tools should then be available by running:
 
 `donedone`
 
