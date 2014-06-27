@@ -73,13 +73,13 @@ program.command('issues-waiting')
         for (var i = 0; i < data.issues.length; i++) {
           console.log("\n");
           if (data.issues[i].priority.id === 1) {
-            console.log(chalk.bgGreen.bold(data.issues[i].title));
+            console.log(gn.bold(data.issues[i].title));
           }
           else if (data.issues[i].priority.id === 2) {
-            console.log(chalk.bgYellow.bold(data.issues[i].title));
+            console.log(yw.bold(data.issues[i].title));
           }
           else if (data.issues[i].priority.id === 3) {
-            console.log(chalk.bgRed.bold(data.issues[i].title));
+            console.log(rd.bold(data.issues[i].title));
           }
 
           console.log("\t Issue Number: " + data.issues[i].order_number);
@@ -87,7 +87,6 @@ program.command('issues-waiting')
           console.log("\t Status: " + data.issues[i].status.name);
           console.log("\t Priority: " + data.issues[i].priority.name);
           console.log("\t Fixer: " + data.issues[i].fixer.name);
-          console.log("");
         }
       }
     });
@@ -99,7 +98,6 @@ program.command('issues-waiting')
 program.command('get-issue <projectId> <issueId>')
   .description('Get details on a specific issue')
   .action(function(projectId, issueId) {
-    console.log("ProjectId: " + projectId + "\nIssueId: " + issueId);
     readDonedonerc();
 
     donedone.getIssue(program.subdomain, program.username, program.password, projectId, issueId, function(err, data) {
@@ -107,15 +105,14 @@ program.command('get-issue <projectId> <issueId>')
         console.log(rd('Error retrieving issue details: ') + gy(err));
       }
       else {
-        console.log("\n");
         if (data.priority.id === 1) {
-          console.log(chalk.bgGreen.bold(data.title));
+          console.log(gn.bold(data.title));
         }
         else if (data.priority.id === 2) {
-          console.log(chalk.bgYellow.bold(data.title));
+          console.log(yw.bold(data.title));
         }
         else if (data.priority.id === 3) {
-          console.log(chalk.bgRed.bold(data.title));
+          console.log(rd.bold(data.title));
         }
 
         console.log("\n");
@@ -130,9 +127,7 @@ program.command('get-issue <projectId> <issueId>')
 
         for (var i = 0; i < data.histories.length; i++) {
           console.log(chalk.bold(data.histories[i].action));
-          console.log("");
           console.log(data.histories[i].description.replace(/<.*?>/g,""));
-          console.log("");
         }
 
       }
