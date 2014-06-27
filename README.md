@@ -51,6 +51,7 @@ You can create a JSON file named `.donedonerc` in the directory that you're runn
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+- v0.2.0 Added functionality to get an issues details and get a list of issues waiting on you. Available in both API and CLI.
 - v0.1.2 Remove 'Test Project' project name from default release build email body, template with correct project name.
 Refactored to handle chunked data responses to API calls.
 - v0.1.1 Fix hardcoded user id that messed up release builds
